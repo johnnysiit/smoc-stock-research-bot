@@ -1,3 +1,4 @@
+from tkinter import wantobjects
 import yfinance as yf
 import pandas as pandas
 #Introduction
@@ -7,11 +8,14 @@ yearindex = str(input("Please type in the year index you want to get \n0: Most r
 print("\nPlease wait... The whole process might take over 2 minutes....\n")
 yf_ticker = yf.Ticker(stock_ticker)
 
-
 #Cashflow
 yf_cashflow = yf_ticker.cashflow
 operatingflow = int(yf_cashflow.iat[10,yearindex])
+capitalExpenditures = int(yf_cashflow.iat[11,yearindex])
 freecashflow = int(operatingflow)-int(capitalExpenditures)
+
+
+
 
 
 #Get Balance and equity
