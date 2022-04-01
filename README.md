@@ -13,3 +13,9 @@ SMOC (_Stock Market Observation Club_)
 ## Library Used:
 Pandas
 yfinance
+
+## Contributor:
+# Coding Contributor:
+Johnny
+# Financial Algorithm Contributor:
+Tim 
