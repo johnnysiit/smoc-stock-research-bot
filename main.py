@@ -1,3 +1,4 @@
+from select import select
 import yfinance as yf
 import pandas as pandas
 #Introduction
@@ -7,42 +8,55 @@ yearindex = int(input("\nPlease type in the year index you want to get \n0: Most
 print("\nPlease wait... The whole process might take over 2 minutes....\n")
 yf_ticker = yf.Ticker(stock_ticker)
 
+def data_selecting(sheet,content):
+    # print (yf_cashflow)
+    # print (content)
+    try:
+        selector = sheet.loc[content]
+        selector = selector.iat[yearindex]
+        if selector == "Null" or selector == "NaN" or selector== "None":
+            selector = 0
+        selector = int(selector)
+        return selector
+    except:
+        selector =float(input("\nThe data (%s) is not available, please type in mannually\n"%content))
+        return 0
+
 #Cash flow
 yf_cashflow = yf_ticker.cashflow
-operatingflow = int(yf_cashflow.iat[10,yearindex])
-capitalExpenditures = int(yf_cashflow.iat[18,yearindex])
-print (yf_cashflow)
-freecashflow = int(operatingflow)-int(capitalExpenditures)
-depreciation = int(yf_cashflow.iat[11,yearindex])
+operatingflow = data_selecting(yf_cashflow, "Total Cash From Operating Activities")
+capitalExpenditures = data_selecting(yf_cashflow, "Capital Expenditures")
+depreciation = data_selecting(yf_cashflow, "Depreciation")
 
-z = yf_cashflow.loc["Net Income"]
-z = z.iat[yearindex]
-print("\n",z,"\n")
+
 
 #Income Statement
 yf_income_statement = yf_ticker.financials
 print (yf_income_statement)
-operating_income = int(yf_income_statement.iat[8,yearindex])
-tax = int(yf_income_statement.iat[14,yearindex])
-interest_expense = int(yf_income_statement.iat[10,yearindex])
-net_income = int(yf_income_statement.iat[4,yearindex])
-sales = int(yf_income_statement.iat[15,yearindex])
+operating_income = data_selecting(yf_income_statement, "Operating Income")
+tax = data_selecting(yf_income_statement, "Income Tax Expense")
+interest_expense = data_selecting(yf_income_statement, "Interest Expense")
+net_income = data_selecting(yf_income_statement, "Net Income")
+sales = data_selecting(yf_income_statement, "Total Revenue")
 
 
 #Balance Sheet
 yf_balance = yf_ticker.balance_sheet
 print (yf_balance)
-shortterm_ebit = int(yf_income_statement.iat[0,yearindex])
-longterm_debt = int(yf_income_statement.iat[20,yearindex])
-starting_equity_balance = int(yf_balance.iat[1,yearindex])
-ending_equity_balance = int(yf_balance.iat[1,(yearindex+1)])
+shortterm_debt = data_selecting(yf_balance, "Short Long Term Debt")
+longterm_debt = data_selecting(yf_balance, "Long Term Debt")
+starting_equity_balance = data_selecting(yf_balance, "Total Stockholder Equity")
+yearindex +=1 
+ending_equity_balance = data_selecting (yf_balance, "Total Stockholder Equity")
+yearindex =1
 avg_stock_equity = (starting_equity_balance + ending_equity_balance)/2
 
 #final variables
 ebit = net_income + tax - interest_expense
 ebitda = ebit + depreciation
 equity = starting_equity_balance
-debt = shortterm_ebit+longterm_debt
+debt = shortterm_debt+longterm_debt
+freecashflow = operatingflow-capitalExpenditures
 
 #======================Calculating Part=======================#
 
@@ -54,7 +68,7 @@ print("Operating Income: %s\nDepreciation: %s\nTax: %s\nSales: %s"%(operating_in
 # print("Operating Margin before D&A (in%): ",OMBDA,"\n")
 
 #Return on Equity
-print("Net Income: %s\nPreferred Stock Dividends: %s\nAverage Common Stockholder's Equity: %s\n"%(net_income,avg_stock_equity))
+print("Net Income: %s\nAverage Common Stockholder's Equity: %s\n"%(net_income,avg_stock_equity))
 ROE = (net_income)/avg_stock_equity
 print("Return on Equity: ",ROE,"\n")
 
