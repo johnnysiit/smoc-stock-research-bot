@@ -3,15 +3,16 @@ import pandas as pandas
 #Introduction
 print("\n==========================================\n|| Welcome to SMOC Data Process System ||\n==========================================\n")
 stock_ticker = str(input("Please type in the symbol of the stock: "))
-yearindex = str(input("Please type in the year index you want to get \n0: Most recent year\n1: Last Year \n2: Two years ago"))
+yearindex = int(input("\nPlease type in the year index you want to get \n0: Most recent year\n1: Last Year \n1: Two years ago\n2: Three years ago\nPlease type in a number: "))
 print("\nPlease wait... The whole process might take over 2 minutes....\n")
 yf_ticker = yf.Ticker(stock_ticker)
 
 #Cashflow
 yf_cashflow = yf_ticker.cashflow
 operatingflow = int(yf_cashflow.iat[10,yearindex])
-capitalExpenditures = int(yf_cashflow.iat[11,yearindex])
-freecashflow = int(operatingflow)-int(capitalExpenditures)
+capitalExpenditure = int(yf_cashflow.iat[18,yearindex])
+print (yf_cashflow)
+# freecashflow = int(operatingflow)-int(capitalExpenditures)
 
 
 
@@ -19,6 +20,7 @@ freecashflow = int(operatingflow)-int(capitalExpenditures)
 
 #Get Balance and equity
 yf_balance = yf_ticker.balance_sheet
+print (yf_balance)
 debt = int(yf_balance.iat[0,yearindex])
 starting_equity_balance = int(yf_balance.iat[1,yearindex])
 ending_equity_balance = int(yf_balance.iat[1,(yearindex+1)])
