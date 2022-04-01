@@ -10,6 +10,16 @@ This program is initially planned to be used as a supplementary program for fina
 Thank you for using our FRAPS.
 SMOC (_Stock Market Observation Club_)
 
+## Installation Instruction:
+### MacOS Install:
+    1. Go to [Python Download Page](https://www.python.org/downloads/) and install the latest version of python
+    2. Open the app Terminal 
+    3. Type in the following code
+    > pip3 install requests
+    > pip3 install pandas
+    > pip3 install numpy
+    > pip3 install yfinance
+
 ## Library Used:
 Pandas
 yfinance
