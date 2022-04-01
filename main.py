@@ -3,9 +3,9 @@ import yfinance as yf
 import pandas as pandas
 #Introduction
 print("\n==========================================\n|| Welcome to SMOC Data Process System ||\n==========================================\n")
-stock_ticker = str(input("Please type in the symbol of the stock: "))
-yearindex = int(input("\nPlease type in the year index you want to get \n0: Most recent year\n1: Last Year \n1: Two years ago\n2: Three years ago\nPlease type in a number: "))
-print("\nPlease wait... The whole process might take over 2 minutes....\n")
+stock_ticker = str(input("请输入股票代码 Please type in the symbol of the stock: "))
+yearindex = int(input("\n请输入年份 Please type in the year index you want to get \n0: Most recent year\n1: Last Year \n1: Two years ago\n2: Three years ago\nPlease type in a number: "))
+print("\n请稍等，总时长可能会超过2分钟 Please wait... The whole process might take over 2 minutes....\n")
 yf_ticker = yf.Ticker(stock_ticker)
 
 def data_selecting(sheet,content):
@@ -17,7 +17,9 @@ def data_selecting(sheet,content):
         selector = int(selector)
         return selector
     except:
-        print ("!!!WARNING!!!\nWe could not locate the data of '%s', please type in mannually"%content)
+        print ("\n!!!WARNING请注意！！！")
+        print ("We could not locate the data of '%s', please type in mannually\n我们无法找到 '%s',请手动补充" %(content,content))
+        print ("!!!Please be advise that data unit in Yahoo Finance is in THOUSAND. \n!!!请注意，YahooFinance的数据单位是千")
         selector = float(input(content+": "))
         return selector
 
