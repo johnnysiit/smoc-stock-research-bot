@@ -86,7 +86,6 @@ print("Grade of ROE: ",OMBDA_Grading(OMBDA))
 print("\n***Return on Equity***\nNet Income: %s\nPrefer Stock Dividend: %s\nAverage Common Stockholder's Equity: %s"%(net_income,preferStockDividend,avg_stock_equity))
 ROE = (net_income-preferStockDividend)/avg_stock_equity
 print("Return on Equity: ",ROE)
-ROE = ROE/100
 #8.7% - 1，12.4% - 2，15.2% - 3，21.8% - 4，28.4% - 5，27% - 6
 def ROE_Grading(ROE):
     if ROE <= 0.087:
@@ -100,9 +99,9 @@ def ROE_Grading(ROE):
     elif 0.218 < ROE <= 0.284:
         return 4
     elif 0.284 < ROE <= 0.27:
-        return 5
-    elif 0.27 < ROE :
         return 6
+    elif 0.27 < ROE :
+        return 5
 print("Grade of ROE: ",ROE_Grading(ROE))
 
 #EBIT Interest Coverage
