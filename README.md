@@ -15,7 +15,7 @@ Pandas
 yfinance
 
 ## Contributor:
-# Coding Contributor:
+### Coding Contributor:
 Johnny
-# Financial Algorithm Contributor:
+### Financial Algorithm Contributor:
 Tim 
