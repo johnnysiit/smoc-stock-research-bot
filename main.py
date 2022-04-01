@@ -1,4 +1,3 @@
-from tkinter import wantobjects
 import yfinance as yf
 import pandas as pandas
 #Introduction
@@ -25,36 +24,36 @@ starting_equity_balance = int(yf_balance.iat[1,yearindex])
 ending_equity_balance = int(yf_balance.iat[1,(yearindex+1)])
 avg_stock_equity = (starting_equity_balance + ending_equity_balance)/2
 
-#final variables
-ebitda = ebit - depreciation
-equity = starting_equity_balance
+# #final variables
+# ebitda = ebit - depreciation
+# equity = starting_equity_balance
 
-#======================Calculating Part=======================#
+# #======================Calculating Part=======================#
 
-print("\n\nIndex starting here")
+# print("\n\nIndex starting here")
 
-#Operating Margin before D&A
-print("Operating Income: %s\nDepreciation: %s\nTax: %s\nInterest: %s\nSales: %s"%(operating_income,depreciation,tax,interest,sales))
-OMBDA = (operating_income+depreciation+tax+interest)/sales
-print("Operating Margin before D&A (in%): ",OMBDA,"\n")
+# #Operating Margin before D&A
+# print("Operating Income: %s\nDepreciation: %s\nTax: %s\nInterest: %s\nSales: %s"%(operating_income,depreciation,tax,interest,sales))
+# OMBDA = (operating_income+depreciation+tax+interest)/sales
+# print("Operating Margin before D&A (in%): ",OMBDA,"\n")
 
-#Return on Equity
-print("Net Income: %s\nPreferred Stock Dividends: %s\nAverage Common Stockholder's Equity: %s\n"%(net_income,dividends,avg_stock_equity))
-ROE = (net_income-dividends)/avg_stock_equity
-print("Return on Equity: ",ROE,"\n")
+# #Return on Equity
+# print("Net Income: %s\nPreferred Stock Dividends: %s\nAverage Common Stockholder's Equity: %s\n"%(net_income,dividends,avg_stock_equity))
+# ROE = (net_income-dividends)/avg_stock_equity
+# print("Return on Equity: ",ROE,"\n")
 
-print("Ebit: %\nInterest: %"%(ebit,interest))
-EI = ebit/interest
-print("1C",EI)
+# print("Ebit: %\nInterest: %"%(ebit,interest))
+# EI = ebit/interest
+# print("1C",EI)
 
-d1 = ebitda/interest
-print("1D",d1)
+# d1 = ebitda/interest
+# print("1D",d1)
 
-e1 = freecashflow/debt
-print("1E",e1)
+# e1 = freecashflow/debt
+# print("1E",e1)
 
-f1 = debt/ebitda
-print("1F",f1)
+# f1 = debt/ebitda
+# print("1F",f1)
 
-print("1g",(debt)/(debt+equity))
+# print("1g",(debt)/(debt+equity))
 
