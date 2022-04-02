@@ -12,15 +12,31 @@ SMOC (_Stock Market Observation Club_)
 
 ## Installation Instruction:
 ### MacOS Install:
+
     1. Go to [Python Download Page](https://www.python.org/downloads/) and install the latest version of python
     2. Open the app Terminal 
     3. Type in the following code
 
-    > pip3 install requests
-    > pip3 install pandas
-    > pip3 install numpy
-    > pip3 install yfinance
-    
+        > sudo pip3 install requests
+        > sudo pip3 install pandas
+        > sudo pip3 install numpy
+        > sudo pip3 install yfinance
+
+    4. Open the FRAPS file and run the FRAPS with IDLE
+    Troubleshoot: johnny@smoc.club
+
+### Windows Install:
+
+    1. Go to [Python Download Page](https://www.python.org/downloads/) and install the latest version of python
+    2. Go to your python file, then open the pip folder
+    4. Right click, run the Powershell or CMD (Administrator)
+    3. Type in the following code
+
+        > pip install requests
+        > pip install pandas
+        > pip install numpy
+        > pip install yfinance
+
     4. Open the FRAPS file and run the FRAPS with IDLE
     Troubleshoot: johnny@smoc.club
 
