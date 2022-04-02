@@ -19,7 +19,7 @@ def data_selecting(sheet,content):
     except:
         print ("\n!!!WARNING请注意！！！")
         print ("We could not locate the data of '%s', please type in mannually\n我们无法找到 '%s',请手动补充" %(content,content))
-        print ("!!!Please be advise that data unit in Yahoo Finance is in THOUSAND. \n!!!请注意，YahooFinance的数据单位是千")
+        print ("!!!Please be advise that data unit in Yahoo Finance is in THOUSAND. \n!!!请注意，YahooFinance的数据单位是千 输入时请换算成一")
         selector = float(input(content+": "))
         return selector
 
@@ -29,7 +29,7 @@ operatingflow = data_selecting(yf_cashflow, "Total Cash From Operating Activitie
 capitalExpenditures = data_selecting(yf_cashflow, "Capital Expenditures")
 depreciation = data_selecting(yf_cashflow, "Depreciation")
 preferStockDividend = data_selecting(yf_cashflow, "Preferred Stock Dividends Paid")
-print(yf_cashflow)
+#print(yf_cashflow)
 
 #Income Statement
 yf_income_statement = yf_ticker.financials
@@ -39,11 +39,11 @@ interest_expense = data_selecting(yf_income_statement, "Interest Expense")
 net_income = data_selecting(yf_income_statement, "Net Income")
 sales = data_selecting(yf_income_statement, "Total Revenue")
 interest_income = data_selecting(yf_income_statement, "Interest Income")
-print (yf_income_statement)
+#print (yf_income_statement)
 
 #Balance Sheet
 yf_balance = yf_ticker.balance_sheet
-print (yf_balance)
+#print (yf_balance)
 debt = data_selecting(yf_balance, "Total Debt")
 starting_equity_balance = data_selecting(yf_balance, "Total Stockholder Equity")
 yearindex +=1 
