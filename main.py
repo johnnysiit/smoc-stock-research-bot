@@ -249,7 +249,7 @@ print("Grade of DTE: ",DTE_Grading(DTE))
 #DEBT to Debt Equity Ratio
 print("\n***Debt to (Debt + Equity)***\nTotal Debt: %s\nTotal Stockholder Equity: %s" %(debt,equity))
 DTDE=(debt)/(debt+equity)
-print ("Debt to (Debt + Equity)",DTDE)
+print ("Debt to (Debt + Equity): ",DTDE)
 def DTDE_Grading(DTDE):
     if DTDE >= 0.732:
         return 0 
