@@ -15,10 +15,12 @@ SMOC (_Stock Market Observation Club_)
     1. Go to [Python Download Page](https://www.python.org/downloads/) and install the latest version of python
     2. Open the app Terminal 
     3. Type in the following code
+
     > pip3 install requests
     > pip3 install pandas
     > pip3 install numpy
     > pip3 install yfinance
+    
     4. Open the FRAPS file and run the FRAPS with IDLE
     Troubleshoot: johnny@smoc.club
 
