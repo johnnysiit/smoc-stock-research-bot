@@ -19,6 +19,8 @@ SMOC (_Stock Market Observation Club_)
     > pip3 install pandas
     > pip3 install numpy
     > pip3 install yfinance
+    4. Open the FRAPS file and run the FRAPS with IDLE
+    Troubleshoot: johnny@smoc.club
 
 ## Library Used:
 Pandas
