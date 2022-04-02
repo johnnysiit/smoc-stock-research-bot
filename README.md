@@ -22,7 +22,7 @@ SMOC (_Stock Market Observation Club_)
         > sudo pip3 install numpy
         > sudo pip3 install yfinance
 
-    4. Open the FRAPS file and run the FRAPS with IDLE
+    4. Open the FRAPS file and run the main.py with IDLE
     Troubleshoot: johnny@smoc.club
 
 ### Windows Install:
@@ -37,7 +37,7 @@ SMOC (_Stock Market Observation Club_)
         > pip install numpy
         > pip install yfinance
 
-    4. Open the FRAPS file and run the FRAPS with IDLE
+    4. Open the FRAPS file and run the main.py with IDLE
     Troubleshoot: johnny@smoc.club
 
 ## Library Used:
