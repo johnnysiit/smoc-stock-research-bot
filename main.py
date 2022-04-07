@@ -94,7 +94,7 @@ print("Grade of ROE: ",OMBDA_Grading(OMBDA))
 #Return on Equity
 print("\n***Return on Equity***\nNet Income: %s\nPrefer Stock Dividend: %s\nAverage Common Stockholder's Equity: %s"%(net_income,preferStockDividend,avg_stock_equity))
 ROE = (net_income-preferStockDividend)/avg_stock_equity
-print("Return on Equity: ",ROE)
+print("Return on Equity:",ROE)
 def ROE_Grading(ROE):
     if ROE <= 0.087:
         return 0
@@ -125,7 +125,7 @@ print("Grade of ROE: ",ROE_Grading(ROE))
 #EBIT Interest Coverage
 print("\n***EBIT Interest Coverage***\nEbit: %s\nInterest: %s" %(ebit,interest_expense))
 EI = ebit/(interest_expense*-1)
-print("EBIT Interest Coverage",EI)
+print("EBIT Interest Coverage:",EI)
 def EI_Grading(EI):
     if EI <= 1.4:
         return 0
@@ -156,7 +156,7 @@ print("Grade of EI: ",EI_Grading(EI))
 #EBITDA Interest Coverage
 print("\n***EBITDA Interest Coverage***\nEbitda: %s\nInterest: %s" %(ebitda,interest_expense))
 EIC = ebitda/(interest_expense*-1)
-print("EBITDA Interest Coverage ",EIC)
+print("EBITDA Interest Coverage:",EIC)
 def EIC_Grading(EIC):
     if EIC <= 2.3:
         return 0
@@ -187,7 +187,7 @@ print("Grade of EIC: ",EIC_Grading(EIC))
 #Free Cash Flow to Debt Ratio
 print("\n***Free Cash Flow to Debt***\nFree Cash Flow: %s\nTotal Debt: %s" %(freecashflow,debt))
 FCFTD = freecashflow/debt
-print("Free Cash Flow to Debt",FCFTD)
+print("Free Cash Flow to Debt:",FCFTD)
 def FCFTD_Grading(FCFTD):
     if FCFTD <= 0.115:
         return 0
@@ -218,7 +218,7 @@ print("Grade of FCFTD: ",FCFTD_Grading(FCFTD))
 #DEBT to EBITDA Ratio
 print("\n***Debt to EBITDA***\nTotal Debt: %s\nEbitda: %s" %(debt,ebitda))
 DTE = debt/ebitda
-print("Debt to EBITDA",DTE)
+print("Debt to EBITDA:",DTE)
 def DTE_Grading(DTE):
     if DTE >= 5.5:
         return 0
