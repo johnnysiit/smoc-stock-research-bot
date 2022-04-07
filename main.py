@@ -1,10 +1,11 @@
 from select import select
-import yfinance as yf
+# import yfinance as yf
 import pandas as pandas
 import data_scraping as ds
 
 #Introduction
 print("\n==========================================\n|| Welcome to SMOC Data Process System ||\n==========================================\n")
+print("\nAttention: This system cannot apply on the data of financial industry.\n请注意：该系统不适用于金融行业的财报数据\n")
 stock_ticker = str(input("请输入股票代码 Please type in the symbol of the stock: "))
 yearindex = int(input("\n请输入年份 Please type in the year index you want to get \n0: Most recent year\n1: Last Year \n1: Two years ago\n2: Three years ago\nPlease type in a number: "))
 print("\n请稍等，总时长可能会超过2分钟 Please wait... The whole process might take over 2 minutes....\n")
