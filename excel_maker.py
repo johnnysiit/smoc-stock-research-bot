@@ -10,24 +10,27 @@ def dict_get(ticker):
 def table_generate(dict_select,ticker):
     
     data_list = (dict_get(ticker))
-
+    print("\nData Generating... Please wait...\n 数据生成中，请稍等...\n")
     def data_select(yearindex):
         data = []
         for j in dict_select:
             data.append(data_list[yearindex][j])
         return data
-
-    df = pd.DataFrame(
-        {
-            data_list[0]["Date"]:data_select(0),
-            data_list[1]["Date"]:data_select(1),
-            data_list[2]["Date"]:data_select(2)
-        }
-    )
-    df.index = dict_select
+    try: 
+        df = pd.DataFrame(
+            {
+                data_list[0]["Date"]:data_select(0),
+                data_list[1]["Date"]:data_select(1),
+                data_list[2]["Date"]:data_select(2)
+            }
+        )
+        df.index = dict_select
+        print("\n%s Data Generated Successfully!\n %s数据生成成功！\n"%(ticker,ticker))
+    except:
+        print("\n%s Data Generated Failed!\n %s数据生成失败，请联系管理员\n"%(ticker,ticker))
     print(df)
 
-def main():
+def main(ticker):
     OMBDA = ["Operating Income","Reconciled Depreciation","Tax Provision","Net Interest Income","Total Revenue","OMBDA","OMBDA_Grading"," "]
     ROE = ["Net Income Common Stockholders","Preferred Stock Dividends Paid","Avg Stock Equity","ROE","ROE_Grading"," "]
     EI = ["EBIT","Interest Expense","EI","EI_Grading"," "]
@@ -37,6 +40,4 @@ def main():
     DTDE = ["Total Debt","Equity","DTDE","DTDE_Grading"," "]
     TOTAL = ["Total_Avg_Grading"]
     dict_select = OMBDA+ROE+EI+EIC+FCFTD+DTE+DTDE+TOTAL
-    table_generate(dict_select,"AAPL")
-
-main()
+    table_generate(dict_select,ticker)

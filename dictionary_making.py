@@ -25,10 +25,14 @@ def data_selecting(sheet,content,yearindex):
 
 def data_dictionary(year,ticker):
     #Creating Tables
-    yf_cashflow = ds.cash_flow(ticker)
-    yf_balance = ds.balance_sheet(ticker)
-    yf_income_statement = ds.income_statement(ticker)
-    financial_data = dict()
+    try:
+        yf_cashflow = ds.cash_flow(ticker)
+        yf_balance = ds.balance_sheet(ticker)
+        yf_income_statement = ds.income_statement(ticker)
+        financial_data = dict()
+    except:
+        print("\nData Scraping Failed!\n数据抓取失败,请检查股票代码%s是否正确\n"%ticker)
+        exit()
     
     #Getting Date
     date = yf_balance.loc["Date"]
