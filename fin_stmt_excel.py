@@ -2,11 +2,23 @@ import pandas as pd
 import data_scraping as ds
 import datetime
 
+def date_function(sheet):
+        date_list = []
+        date = sheet.loc["Date"]
+        for i in date:
+            date_list.append(i)
+        sheet.columns = date_list
+        sheet.drop(["Date"],axis=0,inplace=True)
+        return sheet
+
 def main(ticker,output_mode):
     print("\nNow generating financial statement\n正在生成财务报表\n")
     income = ds.full_income_statement(ticker)
+    income = date_function(income)
     balance = ds.balance_sheet(ticker)
+    balance = date_function(balance)
     cashflow = ds.full_cash_flow(ticker)
+    cashflow = date_function(cashflow)
     if output_mode == 1:
         try:
             current_time = datetime.datetime.now().strftime('%m-%d-%Y-%H-%M-%S')

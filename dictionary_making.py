@@ -52,7 +52,12 @@ def data_dictionary(year,ticker):
     balance_sheet_list = ["Total Debt","Total Equity Gross Minority Interest"]
     for i in balance_sheet_list:
         financial_data[i] = data_selecting(yf_balance,i,year)
-    financial_data["Previous Year Stockholders Equity Balance"] = data_selecting(yf_balance,"Total Equity Gross Minority Interest",(year+1))
+    try:
+        financial_data["Previous Year Stockholders Equity Balance"] = data_selecting(yf_balance,"Total Equity Gross Minority Interest",(year+1))
+    except:
+        financial_data["Previous Year Stockholders Equity Balance"] = data_selecting(yf_balance,"Total Equity Gross Minority Interest",(year))
+        print("\nCannot locate the Stockholders Equity of previous year, please ignore ROE result\n无法找到上一年的股东权益,ROE将不具备参考价值")
+
 
     #final variables
     financial_data["EBITA"] = financial_data["EBIT"] + financial_data["Reconciled Depreciation"]
@@ -69,6 +74,7 @@ def data_dictionary(year,ticker):
     # EI = ebit/(interest_expense)
     if financial_data["Interest Expense"] == 0:
         financial_data["Interest Expense"] = 1
+        print("Warning: Net Interest Expense is 0, please ignore EI datas\n警告:净利息支出为0,请忽略EI数据\n")
     financial_data["EI"] = financial_data["EBIT"]/financial_data["Interest Expense"]
     financial_data["EI_Grading"] = ac.EI_Grading(financial_data["EI"])
     # EIC = ebitda/(interest_expense)
