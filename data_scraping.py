@@ -60,3 +60,10 @@ def cash_flow(ticker):
     cash_flow = data_scraping(ticker,"cash-flow")
     cash_flow = cash_flow.iloc[:,1:]
     return cash_flow
+
+def full_income_statement(ticker):
+    income_statement = data_scraping(ticker,"financials")
+    return income_statement
+def full_cash_flow(ticker):
+    cash_flow = data_scraping(ticker,"cash-flow")
+    return cash_flow

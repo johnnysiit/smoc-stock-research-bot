@@ -7,7 +7,7 @@ def data_selecting(sheet,content,yearindex):
     try:
         selector = sheet.loc[content]
         selector = selector.iat[yearindex]
-        if selector == "Null" or selector == "NaN" or selector== "None" or selector == "null" or selector == "nan" or selector == "none":
+        if selector == "Null" or selector == "-" or selector == "NaN" or selector== "None" or selector == "null" or selector == "nan" or selector == "none":
             selector = 0
         selector = selector.replace(',','')
         selector = int(selector)
@@ -39,15 +39,14 @@ def data_dictionary(year,ticker):
     financial_data["Date"] = date.iat[year]
 
     #Cash flow
-    cashflow_list = ["Operating Cash Flow","Capital Expenditure","Preferred Stock Dividends Paid"]
+    cashflow_list = ["Operating Cash Flow","Capital Expenditure"]
     for i in cashflow_list:
         financial_data[i] = data_selecting(yf_cashflow,i,year)
 
     #Income Statement
-    income_statement_list = ["Reconciled Depreciation","Net Income Common Stockholders","Operating Income","Interest Expense","Tax Provision","Total Revenue","EBIT","Net Interest Income"]
+    income_statement_list = ["Reconciled Depreciation","Preferred Stock Dividends","Net Income Common Stockholders","Operating Income","Interest Expense","Tax Provision","Total Revenue","EBIT","Net Interest Income"]
     for i in income_statement_list:
         financial_data[i] = data_selecting(yf_income_statement,i,year)
-    #print (yf_income_statement)
 
     #Balance Sheet
     balance_sheet_list = ["Total Debt","Total Equity Gross Minority Interest"]
@@ -65,9 +64,11 @@ def data_dictionary(year,ticker):
     financial_data["OMBDA"] = (financial_data["Operating Income"] + financial_data["Reconciled Depreciation"] + financial_data["Tax Provision"] + financial_data["Net Interest Income"])/financial_data["Total Revenue"]
     financial_data["OMBDA_Grading"] = ac.OMBDA_Grading(financial_data["OMBDA"])
     #ROE = (net_income-preferStockDividend)/avg_stock_equity
-    financial_data["ROE"] = (financial_data["Net Income Common Stockholders"] - financial_data["Preferred Stock Dividends Paid"])/financial_data["Avg Stock Equity"]
+    financial_data["ROE"] = (financial_data["Net Income Common Stockholders"] - financial_data["Preferred Stock Dividends"])/financial_data["Avg Stock Equity"]
     financial_data["ROE_Grading"] = ac.ROE_Grading(financial_data["ROE"])
     # EI = ebit/(interest_expense)
+    if financial_data["Interest Expense"] == 0:
+        financial_data["Interest Expense"] = 1
     financial_data["EI"] = financial_data["EBIT"]/financial_data["Interest Expense"]
     financial_data["EI_Grading"] = ac.EI_Grading(financial_data["EI"])
     # EIC = ebitda/(interest_expense)
