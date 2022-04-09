@@ -23,7 +23,7 @@ def data_selecting(sheet,content,yearindex):
         return selector
 
 
-def data_dictionary(year,ticker):
+def data_dictionary(year,ticker,runmode):
     #Creating Tables
     try:
         yf_cashflow = ds.cash_flow(ticker)
@@ -44,9 +44,14 @@ def data_dictionary(year,ticker):
         financial_data[i] = data_selecting(yf_cashflow,i,year)
 
     #Income Statement
-    income_statement_list = ["Reconciled Depreciation","Preferred Stock Dividends","Net Income Common Stockholders","Operating Income","Interest Expense","Tax Provision","Total Revenue","EBIT","Net Interest Income"]
+    if runmode == 1:
+        income_statement_list = ["Preferred Stock Dividends","Reconciled Depreciation","Net Income Common Stockholders","Operating Income","Interest Expense","Tax Provision","Total Revenue","EBIT","Net Interest Income"]
+    else:
+        financial_data["Preferred Stock Dividends"] = 0
+        income_statement_list = ["Reconciled Depreciation","Net Income Common Stockholders","Operating Income","Interest Expense","Tax Provision","Total Revenue","EBIT","Net Interest Income"]
     for i in income_statement_list:
         financial_data[i] = data_selecting(yf_income_statement,i,year)
+    
 
     #Balance Sheet
     balance_sheet_list = ["Total Debt","Total Equity Gross Minority Interest"]
@@ -91,6 +96,5 @@ def data_dictionary(year,ticker):
     financial_data["DTDE_Grading"] = ac.DTDE_Grading(financial_data["DTDE"])
 
     financial_data["Total_Avg_Grading"] = ((financial_data["OMBDA_Grading"]+financial_data["ROE_Grading"]+financial_data["EI_Grading"]+financial_data["EIC_Grading"]+financial_data["FCFTD_Grading"]+financial_data["DTE_Grading"]+financial_data["DTDE_Grading"])/7)
-    financial_data[" "]=" "
     return financial_data
 

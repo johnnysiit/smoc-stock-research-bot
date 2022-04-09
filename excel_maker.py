@@ -1,32 +1,32 @@
 import dictionary_making as dm
 import pandas as pd
-import openpyxl
 import datetime
+import data_scraping as ds
+def dict_get(ticker,dict_select,runmode):
+    yearindex = ds.total_years(ticker)
+    all_data_dict = dict()
+    #获取所有年所需数据
+    for i in range(yearindex):
+        single_year_data = dm.data_dictionary(i,ticker,runmode)
+        date_in_dict = single_year_data["Date"]
+        temp_data = dict()
+        for outterlist in dict_select:
+            temp_data[outterlist] = ""
+            for innerlist in dict_select[outterlist]:
+                temp_data[innerlist] = single_year_data[innerlist]
+        all_data_dict[date_in_dict] = temp_data
+    note = dict()
+    note["OMBDA_"]="ROE in the earliest year is not accurate \nROE在最早年份不准确 \nIf Interest Expense is 1, then EI and EIC could not be apply \n如果Interest Expense为1，则EI和EIC不能使用 \n"
+    all_data_dict["Note"]=note
+        #获取该年所需数据
+    return all_data_dict
 
-def dict_get(ticker):
-    year0_dict = dm.data_dictionary(0,ticker)
-    year1_dict = dm.data_dictionary(1,ticker)
-    year2_dict = dm.data_dictionary(2,ticker)
-    return [year0_dict,year1_dict,year2_dict]
-
-def table_generate(dict_select,ticker,output_mode):
-    
-    data_list = (dict_get(ticker))
+def table_generate(dict_select,ticker,output_mode,runmode):
+    data_list = (dict_get(ticker,dict_select,runmode))
     print("\nData Generating... Please wait...\n 数据生成中，请稍等...\n")
-    def data_select(yearindex):
-        data = []
-        for j in dict_select:
-            data.append(data_list[yearindex][j])
-        return data
+
     try: 
-        df = pd.DataFrame(
-            {
-                data_list[0]["Date"]:data_select(0),
-                data_list[1]["Date"]:data_select(1),
-                data_list[2]["Date"]:data_select(2)
-            }
-        )
-        df.index = dict_select
+        df = pd.DataFrame(data_list)
         print("\n%s Data Generated Successfully!\n %s数据生成成功！\n"%(ticker,ticker))
     except:
         print("\n%s Data Generated Failed!\n %s数据生成失败，请联系管理员\n"%(ticker,ticker))
@@ -43,14 +43,15 @@ def table_generate(dict_select,ticker,output_mode):
         print("%s Data Output %s数据:\n"%(ticker,ticker))
         print(df)
 
-def main(ticker,output_mode):
-    OMBDA = ["Operating Income","Reconciled Depreciation","Tax Provision","Net Interest Income","Total Revenue","OMBDA","OMBDA_Grading"," "]
-    ROE = ["Net Income Common Stockholders","Preferred Stock Dividends","Avg Stock Equity","ROE","ROE_Grading"," "]
-    EI = ["EBIT","Interest Expense","EI","EI_Grading"," "]
-    EIC = ["EBITA","Interest Expense","EIC","EIC_Grading"," "]
-    FCFTD = ["Free Cashflow","Total Debt","FCFTD","FCFTD_Grading"," "]
-    DTE = ["Total Debt","EBITA","DTE","DTE_Grading"," "]
-    DTDE = ["Total Debt","Equity","DTDE","DTDE_Grading"," "]
-    TOTAL = ["Total_Avg_Grading"]
-    dict_select = OMBDA+ROE+EI+EIC+FCFTD+DTE+DTDE+TOTAL
-    table_generate(dict_select,ticker,output_mode)
+def main(ticker,output_mode,runmode):
+    dict_select= dict()
+    dict_select["OMBDA_"] = ["Operating Income","Reconciled Depreciation","Tax Provision","Net Interest Income","Total Revenue","OMBDA","OMBDA_Grading"]
+    dict_select["ROE_"] = ["Net Income Common Stockholders","Preferred Stock Dividends","Avg Stock Equity","ROE","ROE_Grading"]
+    dict_select["EI_"] = ["EBIT","Interest Expense","EI","EI_Grading"]
+    dict_select["EIC_"] = ["EBITA","Interest Expense","EIC","EIC_Grading"]
+    dict_select["FCFTD_"] = ["Free Cashflow","Total Debt","FCFTD","FCFTD_Grading"]
+    dict_select["DTE_"] = ["Total Debt","EBITA","DTE","DTE_Grading"]
+    dict_select["DTDE_"] = ["Total Debt","Equity","DTDE","DTDE_Grading"]
+    dict_select["TOTAL_"] = ["Total_Avg_Grading"]
+    table_generate(dict_select,ticker,output_mode,runmode)
+
