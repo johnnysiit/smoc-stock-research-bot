@@ -3,7 +3,7 @@ import pandas as pandas
 import data_scraping as ds
 import algri_config as ac
 
-def data_selecting(sheet,content,yearindex):
+def data_selecting(sheet,content,yearindex,runmode):
     try:
         selector = sheet.loc[content]
         selector = selector.iat[yearindex]
@@ -14,22 +14,25 @@ def data_selecting(sheet,content,yearindex):
         return selector
     except:
         #Getting Date
-        date = sheet.loc["Date"]
-        date = date.iat[yearindex]
-        print ("\n!!!WARNING请注意!!!")
-        print ("We could not locate the data of '%s' for the date of %s, please type in mannually\n我们无法找到%s的 '%s',请手动补充" %(content,date,date,content))
-        print ("!!!Unit is in THOUSAND DOLLARS\n!!!单位是1000美元\n")
-        selector = int(input(content+": "))
+        if runmode == 2:
+            selector = 0
+        elif runmode == 1:
+            date = sheet.loc["Date"]
+            date = date.iat[yearindex]
+            print ("\n!!!WARNING请注意!!!")
+            print ("We could not locate the data of '%s' for the date of %s, please type in mannually\n我们无法找到%s的 '%s',请手动补充" %(content,date,date,content))
+            print ("!!!Unit is in THOUSAND DOLLARS\n!!!单位是1000美元\n")
+            selector = int(input(content+": "))
         return selector
 
 
 def data_dictionary(year,ticker,runmode):
     #Creating Tables
+    financial_data = dict()
     try:
         yf_cashflow = ds.cash_flow(ticker)
         yf_balance = ds.balance_sheet(ticker)
         yf_income_statement = ds.income_statement(ticker)
-        financial_data = dict()
     except:
         print("\nData Scraping Failed!\n数据抓取失败,请检查股票代码%s是否正确\n"%ticker)
         exit()
@@ -41,7 +44,7 @@ def data_dictionary(year,ticker,runmode):
     #Cash flow
     cashflow_list = ["Operating Cash Flow","Capital Expenditure"]
     for i in cashflow_list:
-        financial_data[i] = data_selecting(yf_cashflow,i,year)
+        financial_data[i] = data_selecting(yf_cashflow,i,year,runmode)
 
     #Income Statement
     if runmode == 1:
@@ -50,19 +53,19 @@ def data_dictionary(year,ticker,runmode):
         financial_data["Preferred Stock Dividends"] = 0
         income_statement_list = ["Reconciled Depreciation","Net Income Common Stockholders","Operating Income","Interest Expense","Tax Provision","Total Revenue","EBIT","Net Interest Income"]
     for i in income_statement_list:
-        financial_data[i] = data_selecting(yf_income_statement,i,year)
+        financial_data[i] = data_selecting(yf_income_statement,i,year,runmode)
     
 
     #Balance Sheet
     balance_sheet_list = ["Total Debt","Total Equity Gross Minority Interest"]
     for i in balance_sheet_list:
-        financial_data[i] = data_selecting(yf_balance,i,year)
+        financial_data[i] = data_selecting(yf_balance,i,year,runmode)
     try:
-        financial_data["Previous Year Stockholders Equity Balance"] = data_selecting(yf_balance,"Total Equity Gross Minority Interest",(year+1))
+        financial_data["Previous Year Stockholders Equity Balance"] = data_selecting(yf_balance,"Total Equity Gross Minority Interest",(year+1),runmode)
     except:
-        financial_data["Previous Year Stockholders Equity Balance"] = data_selecting(yf_balance,"Total Equity Gross Minority Interest",(year))
-        print("\nCannot locate the Stockholders Equity of previous year, please ignore ROE result\n无法找到上一年的股东权益,ROE将不具备参考价值")
-
+        financial_data["Previous Year Stockholders Equity Balance"] = data_selecting(yf_balance,"Total Equity Gross Minority Interest",(year),runmode)
+        if runmode == 1:
+            print("\nCannot locate the Stockholders Equity of previous year, please ignore ROE result\n无法找到上一年的股东权益,ROE将不具备参考价值")
 
     #final variables
     financial_data["EBITA"] = financial_data["EBIT"] + financial_data["Reconciled Depreciation"]
@@ -78,8 +81,9 @@ def data_dictionary(year,ticker,runmode):
     financial_data["ROE_Grading"] = ac.ROE_Grading(financial_data["ROE"])
     # EI = ebit/(interest_expense)
     if financial_data["Interest Expense"] == 0:
-        financial_data["Interest Expense"] = 1
-        print("Warning: Net Interest Expense is 0, please ignore EI datas\n警告:净利息支出为0,请忽略EI数据\n")
+        financial_data["Interest Expense"] = 0.0001
+        if runmode == 1:
+            print("Warning: Net Interest Expense is 0, please ignore EI datas\n警告:净利息支出为0,请忽略EI数据\n")
     financial_data["EI"] = financial_data["EBIT"]/financial_data["Interest Expense"]
     financial_data["EI_Grading"] = ac.EI_Grading(financial_data["EI"])
     # EIC = ebitda/(interest_expense)
