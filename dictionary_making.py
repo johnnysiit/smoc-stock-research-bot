@@ -10,7 +10,7 @@ def data_selecting(sheet,content,yearindex,runmode):
         if selector == "Null" or selector == "-" or selector == "NaN" or selector== "None" or selector == "null" or selector == "nan" or selector == "none":
             selector = 0
         selector = selector.replace(',','')
-        selector = int(selector)
+        selector = float(selector)
         return selector
     except:
         #Getting Date
@@ -22,7 +22,7 @@ def data_selecting(sheet,content,yearindex,runmode):
             print ("\n!!!WARNING请注意!!!")
             print ("We could not locate the data of '%s' for the date of %s, please type in mannually\n我们无法找到%s的 '%s',请手动补充" %(content,date,date,content))
             print ("!!!Unit is in THOUSAND DOLLARS\n!!!单位是1000美元\n")
-            selector = int(input(content+": "))
+            selector = float(input(content+": "))
         return selector
 
 
@@ -90,6 +90,8 @@ def data_dictionary(year,ticker,runmode):
     financial_data["EIC"] = financial_data["EBITA"]/financial_data["Interest Expense"]
     financial_data["EIC_Grading"] = ac.EIC_Grading(financial_data["EIC"])
     # FCFTD = freecashflow/debt
+    if financial_data["Total Debt"] == 0:
+        financial_data["Total Debt"] = 0.0001
     financial_data["FCFTD"] = financial_data["Free Cashflow"]/financial_data["Total Debt"]
     financial_data["FCFTD_Grading"] = ac.FCFTD_Grading(financial_data["FCFTD"])
     # DTE = debt/ebitda
