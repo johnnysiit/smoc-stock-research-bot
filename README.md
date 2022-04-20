@@ -12,33 +12,24 @@ SMOC (_Stock Market Observation Club_)
 
 ## Installation Instruction:
 ### MacOS Install:
+1. From this link download FRAPS [Click here to download](https://smocclub-my.sharepoint.com/:u:/g/personal/johnny_smoc_club/ET0ifhbh5vVDkaT7lepiD3QBtUySa9wjrTmmiJICXRiSIQ?e=gyfxna)
+2. Unzip the file
+3. Double click "main" to run
+4. Only type in tickers in company selecting
+5. Only type in NUMBER on mode selecting
+6. If output by Excel, check your desktop
 
-    1. Go to [Python Download Page](https://www.python.org/downloads/) and install the latest version of python
-    2. Open the app Terminal 
-    3. Type in the following code
+#### First Time Use Check Here!
+![image](https://user-images.githubusercontent.com/37731817/164135699-acf5fb0b-d86a-44a3-a7c0-1207abe459ab.png)
 
-        > sudo pip3 install requests
-        > sudo pip3 install pandas
-        > sudo pip3 install numpy
-        > sudo pip3 install yfinance
+Please go to System Preferences, click Security & Privacy , then click General
+![image](https://user-images.githubusercontent.com/37731817/164135917-16d37c1f-8e6c-4f65-aa87-4e1e6f20c416.png)
+Then click "Open Anyway"
 
-    4. Open the FRAPS file and run the main.py with IDLE
-    Troubleshoot: johnny@smoc.club
+Go back to the file and run the "main" again
 
 ### Windows Install:
-
-    1. Go to [Python Download Page](https://www.python.org/downloads/) and install the latest version of python
-    2. Go to your python file, then open the pip folder
-    4. Right click, run the Powershell or CMD (Administrator)
-    3. Type in the following code
-
-        > pip install requests
-        > pip install pandas
-        > pip install numpy
-        > pip install yfinance
-
-    4. Open the FRAPS file and run the main.py with IDLE
-    Troubleshoot: johnny@smoc.club
+We don't have official Windows currently. Please wait for new version.
 
 ## Library Used:
 Pandas
