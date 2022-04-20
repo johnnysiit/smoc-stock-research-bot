@@ -2,6 +2,7 @@ import dictionary_making as dm
 import pandas as pd
 import datetime
 import data_scraping as ds
+import os
 def dict_get(ticker,dict_select,runmode):
     yearindex = ds.total_years(ticker)
     all_data_dict = dict()
@@ -22,6 +23,7 @@ def dict_get(ticker,dict_select,runmode):
     return all_data_dict
 
 def table_generate(dict_select,ticker,output_mode,runmode):
+    current_path = os.path.dirname(os.path.abspath(__file__))
     data_list = (dict_get(ticker,dict_select,runmode))
     print("\nData Generating... Please wait...\n 数据生成中，请稍等...\n")
 
@@ -35,7 +37,7 @@ def table_generate(dict_select,ticker,output_mode,runmode):
 
     if output_mode == 1:
         try:
-            df.to_excel("./Output/%s_DataAnaly_%s.xlsx"%(ticker,current_time))
+            df.to_excel(current_path+"/Output/%s_DataAnaly_%s.xlsx"%(ticker,current_time))
             print("\n%s Data Output Successfully! Please check Output folder\n %s数据输出成功,请检查Output文件夹\n"%(ticker,ticker))
         except:
             print("\n%s Data Output Failed! Please print in console\n %sExcel输出失败,请使用终端输出\n"%(ticker,ticker))
