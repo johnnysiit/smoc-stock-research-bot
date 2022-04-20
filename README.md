@@ -12,7 +12,7 @@ SMOC (_Stock Market Observation Club_)
 
 ## Installation Instruction:
 ### MacOS Install:
-1. From this link download FRAPS [Click here to download](https://smocclub-my.sharepoint.com/:u:/g/personal/johnny_smoc_club/ET0ifhbh5vVDkaT7lepiD3QBtUySa9wjrTmmiJICXRiSIQ?e=gyfxna)
+1. From this link download FRAPS [Click here to download](https://smocclub-my.sharepoint.com/:f:/g/personal/johnny_smoc_club/EpdYlSkX8wxChJmy3ySac88BUgVnpfqvgNDkitKvYhirOw?e=gb5ig5)
 2. Unzip the file
 3. Double click "main" to run
 4. Only type in tickers in company selecting
@@ -21,16 +21,10 @@ SMOC (_Stock Market Observation Club_)
 
 #### First Time Use Check Here!
 ![image](https://user-images.githubusercontent.com/37731817/164135699-acf5fb0b-d86a-44a3-a7c0-1207abe459ab.png)
+If you have issue like this, please go to System Preferences, click Security & Privacy , then click General
+Then click "Open Anyway"
+Go back to the file and run the "main" again
 
-**Please go to System Preferences, click Security & Privacy , then click General
-**
-
-![image](https://user-images.githubusercontent.com/37731817/164135917-16d37c1f-8e6c-4f65-aa87-4e1e6f20c416.png)
-
-**Then click "Open Anyway"
-**
-**Go back to the file and run the "main" again
-**
 ### Windows Install:
 We don't have official Windows currently. Please wait for new version.
 
