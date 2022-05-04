@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 
 def data_scraping(ticker,sheet_name):
-    url = ("https://finance.yahoo.com/quote/"+ticker+"/"+sheet_name+"?p=AAPL")
+    url = ("https://finance.yahoo.com/quote/"+ticker+"/"+sheet_name+"?p="+ticker)
     headers = {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
         'Accept-Encoding': 'gzip, deflate, br',
