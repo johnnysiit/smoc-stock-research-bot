@@ -1,5 +1,7 @@
 from finvizfinance.quote import finvizfinance
 import pandas as pd
+import datetime
+import os
 
 def get_data(ticker):
     stock = finvizfinance(ticker)
@@ -7,11 +9,13 @@ def get_data(ticker):
     return stock_fundament
 
 def main():
-    print ("请在每行输入一个股票代码，并留空回车以完成键入")
-    print ("Please enter one ticker per line, and press enter to finish")
+    print ("\n请在每行输入一个股票代码，并留空回车以完成键入")
+    print ("Please enter one ticker per line, and press enter to finish\n")
     ticker_list = []
+    count = 0
     while True:
-        tickers = input("Enter tickers: ")
+        count += 1
+        tickers = input("Enter stock ticker %s: "%count)
         if tickers == '':
             break
         else:
@@ -33,6 +37,14 @@ def main():
         final_data[i] = stock_data
 
     df = pd.DataFrame(final_data)
+    current_time = datetime.datetime.now().strftime('%m-%d-%Y-%H-%M-%S')
     #make excel
-    df.to_excel("./test.xlsx")
-    print ("Done")
+    try:
+        current_path = os.path.dirname(os.path.abspath(__file__))
+        file_name = current_path+"/Output/%s_SCT_%s.xlsx"%(ticker_list[0],current_time)
+        df.to_excel(file_name)
+        print ("\n数据输出成功于Output文件夹\nData output successfully in Output folder\n")
+    except:
+        print ("\n数据输出失败 请检查输出权限\nFailed to output data, please check output permission")
+
+main()

@@ -1,7 +1,8 @@
-from select import select
-import pandas as pandas
+import pandas as pd
 import data_scraping as ds
 import algri_config as ac
+import datetime
+import os
 
 def data_selecting(sheet,content,yearindex,runmode):
     try:
@@ -79,33 +80,33 @@ def data_dictionary(ticker,runmode):
 
         # OMBDA = (operating_income+depreciation+tax+interest_income)/sales
         single_year_data["OMBDA"] = (single_year_data["Operating Income"] + single_year_data["Reconciled Depreciation"] + single_year_data["Tax Provision"] + single_year_data["Net Interest Income"])/single_year_data["Total Revenue"]
-        single_year_data["OMBDA_Grading"] = ac.OMBDA_Grading(single_year_data["OMBDA"])
+        single_year_data["OMBDA Grading"] = ac.OMBDA_Grading(single_year_data["OMBDA"])
         #ROE = (net_income-preferStockDividend)/avg_stock_equity
         single_year_data["ROE"] = (single_year_data["Net Income Common Stockholders"] - single_year_data["Preferred Stock Dividends"])/single_year_data["Avg Stock Equity"]
-        single_year_data["ROE_Grading"] = ac.ROE_Grading(single_year_data["ROE"])
+        single_year_data["ROE Grading"] = ac.ROE_Grading(single_year_data["ROE"])
         # EI = ebit/(interest_expense)
         if single_year_data["Interest Expense"] == 0:
             single_year_data["Interest Expense"] = 0.0001
             if runmode == 1:
                 print("Warning: Net Interest Expense is 0, please ignore EI datas\n警告:净利息支出为0,请忽略EI数据\n")
         single_year_data["EI"] = single_year_data["EBIT"]/single_year_data["Interest Expense"]
-        single_year_data["EI_Grading"] = ac.EI_Grading(single_year_data["EI"])
+        single_year_data["EI Grading"] = ac.EI_Grading(single_year_data["EI"])
         # EIC = ebitda/(interest_expense)
         single_year_data["EIC"] = single_year_data["EBITA"]/single_year_data["Interest Expense"]
-        single_year_data["EIC_Grading"] = ac.EIC_Grading(single_year_data["EIC"])
+        single_year_data["EIC Grading"] = ac.EIC_Grading(single_year_data["EIC"])
         # FCFTD = freecashflow/debt
         if single_year_data["Total Debt"] == 0:
             single_year_data["Total Debt"] = 0.0001
         single_year_data["FCFTD"] = single_year_data["Free Cashflow"]/single_year_data["Total Debt"]
-        single_year_data["FCFTD_Grading"] = ac.FCFTD_Grading(single_year_data["FCFTD"])
+        single_year_data["FCFTD Grading"] = ac.FCFTD_Grading(single_year_data["FCFTD"])
         # DTE = debt/ebitda
         single_year_data["DTE"] = single_year_data["Total Debt"]/single_year_data["EBITA"]
-        single_year_data["DTE_Grading"] = ac.DTE_Grading(single_year_data["DTE"])
+        single_year_data["DTE Grading"] = ac.DTE_Grading(single_year_data["DTE"])
         # DTDE=(debt)/(debt+equity)
         single_year_data["DTDE"] = single_year_data["Total Debt"]/(single_year_data["Total Debt"]+single_year_data["Total Equity Gross Minority Interest"])
-        single_year_data["DTDE_Grading"] = ac.DTDE_Grading(single_year_data["DTDE"])
+        single_year_data["DTDE Grading"] = ac.DTDE_Grading(single_year_data["DTDE"])
 
-        single_year_data["Total_Avg_Grading"] = ((single_year_data["OMBDA_Grading"]+single_year_data["ROE_Grading"]+single_year_data["EI_Grading"]+single_year_data["EIC_Grading"]+single_year_data["FCFTD_Grading"]+single_year_data["DTE_Grading"]+single_year_data["DTDE_Grading"])/7)
+        single_year_data["Total Avg Grading"] = ((single_year_data["OMBDA Grading"]+single_year_data["ROE Grading"]+single_year_data["EI Grading"]+single_year_data["EIC Grading"]+single_year_data["FCFTD Grading"]+single_year_data["DTE Grading"]+single_year_data["DTDE Grading"])/7)
         
         date_in_dict = single_year_data["Date"]
         temp_data = dict()
@@ -118,12 +119,35 @@ def data_dictionary(ticker,runmode):
 
 def select_dict():
     dict_select= dict()
-    dict_select["OMBDA_"] = ["Operating Income","Reconciled Depreciation","Tax Provision","Net Interest Income","Total Revenue","OMBDA","OMBDA_Grading"]
-    dict_select["ROE_"] = ["Net Income Common Stockholders","Preferred Stock Dividends","Avg Stock Equity","ROE","ROE_Grading"]
-    dict_select["EI_"] = ["EBIT","Interest Expense","EI","EI_Grading"]
-    dict_select["EIC_"] = ["EBITA","Interest Expense","EIC","EIC_Grading"]
-    dict_select["FCFTD_"] = ["Free Cashflow","Total Debt","FCFTD","FCFTD_Grading"]
-    dict_select["DTE_"] = ["Total Debt","EBITA","DTE","DTE_Grading"]
-    dict_select["DTDE_"] = ["Total Debt","Equity","DTDE","DTDE_Grading"]
-    dict_select["TOTAL_"] = ["Total_Avg_Grading"]
+    dict_select["OMBDA List"] = ["Operating Income","Reconciled Depreciation","Tax Provision","Net Interest Income","Total Revenue","OMBDA","OMBDA Grading"]
+    dict_select["ROE List"] = ["Net Income Common Stockholders","Preferred Stock Dividends","Avg Stock Equity","ROE","ROE Grading"]
+    dict_select["EI List"] = ["EBIT","Interest Expense","EI","EI Grading"]
+    dict_select["EIC List"] = ["EBITA","Interest Expense","EIC","EIC Grading"]
+    dict_select["FCFTD List"] = ["Free Cashflow","Total Debt","FCFTD","FCFTD Grading"]
+    dict_select["DTE List"] = ["Total Debt","EBITA","DTE","DTE Grading"]
+    dict_select["DTDE List"] = ["Total Debt","Equity","DTDE","DTDE Grading"]
+    dict_select["TOTAL List"] = ["Total Avg Grading"]
     return dict_select
+
+def main(ticker,output_mode,runmode):
+    current_path = os.path.dirname(os.path.abspath(__file__))
+    data_list = data_dictionary(ticker,runmode)
+    print("\nData Generating... Please wait...\n 数据生成中，请稍等...\n")
+
+    try: 
+        df = pd.DataFrame(data_list)
+        print("\n%s Data Generated Successfully!\n %s数据生成成功！\n"%(ticker,ticker))
+    except:
+        print("\n%s Data Generated Failed!\n %s数据生成失败，请联系管理员\n"%(ticker,ticker))
+
+    current_time = datetime.datetime.now().strftime('%m-%d-%Y-%H-%M-%S')
+
+    if output_mode == 1:
+        try:
+            df.to_excel(current_path+"/Output/%s_DataAnaly_%s.xlsx"%(ticker,current_time))
+            print("\n%s Data Output Successfully! Please check Output folder\n %s数据输出成功,请检查Output文件夹\n"%(ticker,ticker))
+        except:
+            print("\n%s Data Output Failed! Please print in console\n %sExcel输出失败,请使用终端输出\n"%(ticker,ticker))
+    elif output_mode == 2:
+        print("%s Data Output %s数据:\n"%(ticker,ticker))
+        print(df)

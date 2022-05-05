@@ -1,4 +1,4 @@
-import excel_maker as em
+import mgs
 import fin_stmt_excel as fse
 import sct
 
@@ -10,7 +10,7 @@ def get_tickers():
 print("\n==========================================\n|| Welcome to SMOC Data Process System ||\n==========================================\n")
 print("请选择运行程序 Pleae select the program you want to run:")
 print("1. Stock Comparison Tool\n2. Financial Statement\n3. SMOC Matrix Grading System")
-program_run = input("Please enter a number:")
+program_run = input("Please enter a number: ")
 if program_run == "1":
     sct.main()
 elif program_run == "2":
@@ -22,7 +22,7 @@ elif program_run == "3":
     ticker,output_mode = get_tickers()
     runmode = int(input("\n1.Normal Mode\n2.Fast Mode (Skip Preferred Stock Dividend)\n请选择运行模式 Please select the run mode: "))
     print("\nNow analyzing the data\n开始分析数据\n")
-    em.main(ticker,output_mode,runmode)
+    mgs.main(ticker,output_mode,runmode)
     print("\nFRAPS Finished Running!\nFARPS完成运行，感谢支持!\n")
 else:
     print ("\nPlease enter a valid number!\n请输入有效数字！\n")

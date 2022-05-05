@@ -64,9 +64,11 @@ def cash_flow(ticker):
 def full_income_statement(ticker):
     income_statement = data_scraping(ticker,"financials")
     return income_statement
+    
 def full_cash_flow(ticker):
     cash_flow = data_scraping(ticker,"cash-flow")
     return cash_flow
+
 def total_years(ticker):
     balance_sheet = data_scraping(ticker,"balance-sheet")
     return len(balance_sheet.columns)

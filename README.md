@@ -14,6 +14,7 @@ SMOC (_Stock Market Observation Club_)
 #### SMOC_FRAPS 1.1 5/10/2022
 ---NOT RELEASE YET---
 - Stock Matrix Comparison Function Added
+- Optimize matrix grading speed
 
 #### SMOC_FRAPS 1.0 4/10/2022
 Initial Version Comes with following functions

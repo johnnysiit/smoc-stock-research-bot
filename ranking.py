@@ -1,4 +1,4 @@
-import dictionary_making as dm
+import mgs
 import pandas as pd
 import time
 all_tickers = open("./Tickers.txt", "r").readlines()
@@ -8,7 +8,7 @@ for i in all_tickers:
 final_data = dict()
 tickers.sort()
 for j in tickers:
-    all_data = dm.data_dictionary(0,j,2)
+    all_data = mgs.data_dictionary(0,j,2)
     try:
         final_data[j] = all_data["Total_Avg_Grading"]
     except:
