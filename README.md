@@ -10,6 +10,16 @@ This program is initially planned to be used as a supplementary program for fina
 Thank you for using our FRAPS.
 SMOC (_Stock Market Observation Club_)
 
+## Release History
+#### SMOC_FRAPS 1.1 5/10/2022
+---NOT RELEASE YET---
+- Stock Matrix Comparison Function Added
+
+#### SMOC_FRAPS 1.0 4/10/2022
+Initial Version Comes with following functions
+- Financial Statement Excel Generator
+- SMOC Financial Matrix Grading Program
+
 ## Installation Instruction:
 ### MacOS Install:
 1. From this link download FRAPS [Click here to download](https://smocclub-my.sharepoint.com/:f:/g/personal/johnny_smoc_club/EpdYlSkX8wxChJmy3ySac88BUgVnpfqvgNDkitKvYhirOw?e=gb5ig5)
@@ -28,12 +38,8 @@ Go back to the file and run the "main" again
 ### Windows Install:
 We don't have official Windows currently. Please wait for new version.
 
-## Library Used:
-Pandas
-yfinance
-
 ## Contributor:
 ### Coding Contributor:
-Johnny
+Johnny Sit
 ### Financial Algorithm Contributor:
-Tim 
+Tim Tang
