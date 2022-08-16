@@ -1,6 +1,6 @@
 import mgs
-import fin_stmt_excel as fse
 import sct
+import fin_stmt_excel as fse
 
 def get_tickers():
     ticker = str(input("请输入股票代码 Please type in the symbol of the stock: "))
@@ -11,6 +11,7 @@ print("\n==========================================\n|| Welcome to SMOC Data Pro
 print("请选择运行程序 Pleae select the program you want to run:")
 print("1. Stock Comparison Tool\n2. Financial Statement\n3. SMOC Matrix Grading System")
 program_run = input("Please enter a number: ")
+
 if program_run == "1":
     sct.main()
 elif program_run == "2":

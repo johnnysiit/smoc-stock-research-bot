@@ -46,5 +46,3 @@ def main():
         print ("\n数据输出成功于Output文件夹\nData output successfully in Output folder\n")
     except:
         print ("\n数据输出失败 请检查输出权限\nFailed to output data, please check output permission")
-
-main()
