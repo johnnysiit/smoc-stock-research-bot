@@ -1,5 +1,5 @@
 import pandas as pd
-import data_scraping as ds
+import Statement_Grading.data_scraping as ds
 import datetime
 import os
 def date_function(sheet):
@@ -23,7 +23,7 @@ def main(ticker,output_mode):
     if output_mode == 1:
         try:
             current_time = datetime.datetime.now().strftime('%m-%d-%Y-%H-%M-%S')
-            writer = pd.ExcelWriter(current_path+"/Output/%s_FinStatmt_%s.xlsx"%(ticker,current_time))
+            writer = pd.ExcelWriter("./Output/%s_FinStatmt_%s.xlsx"%(ticker,current_time))
             income.to_excel(writer, sheet_name="IncomeStatement")
             cashflow.to_excel(writer, sheet_name="CashFlow")
             balance.to_excel(writer, sheet_name="BalanceSheet")

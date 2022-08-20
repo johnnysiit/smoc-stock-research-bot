@@ -1,4 +1,4 @@
-import mgs
+import Statement_Grading.mgs as mgs
 import pandas as pd
 import time
 all_tickers = open("./Tickers.txt", "r").readlines()
@@ -16,4 +16,4 @@ for j in tickers:
     print ("%4s : %1.2f"%(j,final_data[j]))
     time.sleep(25)
 df = pd.DataFrame(final_data)
-df.to_excel("ranking.xlsx")
+df.to_excel("./Output/ranking.xlsx")

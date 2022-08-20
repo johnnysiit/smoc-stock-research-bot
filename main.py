@@ -1,6 +1,6 @@
-import mgs
-import sct
-import fin_stmt_excel as fse
+import Statement_Grading.mgs as mgs
+import Stock_Comparison.sct as sct
+import Statement_Grading.fin_stmt_excel as fse
 import Volatility_Strategy.main as vs
 
 

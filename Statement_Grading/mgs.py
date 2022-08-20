@@ -1,6 +1,6 @@
 import pandas as pd
-import data_scraping as ds
-import algri_config as ac
+import Statement_Grading.data_scraping as ds
+import Statement_Grading.algri_config as ac
 import datetime
 import os
 
@@ -144,7 +144,7 @@ def main(ticker,output_mode,runmode):
 
     if output_mode == 1:
         try:
-            df.to_excel(current_path+"/Output/%s_DataAnaly_%s.xlsx"%(ticker,current_time))
+            df.to_excel("./Output/%s_DataAnaly_%s.xlsx"%(ticker,current_time))
             print("\n%s Data Output Successfully! Please check Output folder\n %s数据输出成功,请检查Output文件夹\n"%(ticker,ticker))
         except:
             print("\n%s Data Output Failed! Please print in console\n %sExcel输出失败,请使用终端输出\n"%(ticker,ticker))

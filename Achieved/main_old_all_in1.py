@@ -1,8 +1,8 @@
 from select import select
 # import yfinance as yf
 import pandas as pandas
-import data_scraping as ds
-import algri_config as ac
+import Statement_Grading.data_scraping as ds
+import Statement_Grading.algri_config as ac
 
 #Introduction
 print("\n==========================================\n|| Welcome to SMOC Data Process System ||\n==========================================\n")
