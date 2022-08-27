@@ -34,7 +34,7 @@ Initial Version Comes with following functions
 - SMOC Financial Matrix Grading Program
 
 ## Modules Needed:
-'''
+```
 pip3 install pandas
 pip3 install numpy
 pip3 install lxml
@@ -42,29 +42,12 @@ pip3 install finvizfinance
 pip3 install yfinance
 pip3 install yahoofin
 pip3 install requests
-'''
-### No Local Program provided temporarily, please use the source code
-~~
-## Installation Instruction:
-### MacOS Install:
-1. From this link download FRAPS [Click here to download](https://smocclub-my.sharepoint.com/:f:/g/personal/johnny_smoc_club/EpdYlSkX8wxChJmy3ySac88BUgVnpfqvgNDkitKvYhirOw?e=gb5ig5)
-2. Unzip the file
-3. Double click "main" to run
-4. Only type in tickers in company selecting
-5. Only type in NUMBER on mode selecting
-6. If output by Excel, check your desktop
+```
+#### No Local Program provided temporarily, please use the source code directly.
 
-#### First Time Use Check Here!
-![image](https://user-images.githubusercontent.com/37731817/164135699-acf5fb0b-d86a-44a3-a7c0-1207abe459ab.png)
-If you have issue like this, please go to System Preferences, click Security & Privacy , then click General
-Then click "Open Anyway"
-Go back to the file and run the "main" again
-
-### Windows Install:
-We don't have official Windows currently. Please wait for new version.
-~~
 ## Contributor:
 ### Coding Contributor:
-Johnny Sit
+Juanxi Xue
 ### Financial Algorithm Contributor:
+Juanxi Xue
 Tim Tang
