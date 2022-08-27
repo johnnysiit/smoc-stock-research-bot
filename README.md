@@ -11,12 +11,12 @@ Thank you for using our FRAPS.
 Juanxi Xue (_Stock Market Observation Club_)
 
 ## Major Functions:
-### 1. Equity Statistic Data (Ratio/Multiplies Comparison)
-### 2. Financial Statement Analysis
-### 3. Volatility Strategy (For Spread Option Use)
-### 4. Modeling tools (DDM, Multipliers, FCFE, Valuation)
-### 5. Bond Calculator
-### 6. CAPM Functions (SML, CML, Sharpe, M^2, Treynor)
+#### 1. Equity Statistic Data (Ratio/Multiplies Comparison)
+#### 2. Financial Statement Analysis
+#### 3. Volatility Strategy (For Spread Option Use)
+#### 4. Modeling tools (DDM, Multipliers, FCFE, Valuation)
+#### 5. Bond Calculator
+#### 6. CAPM Functions (SML, CML, Sharpe, M^2, Treynor)
 ## Release History
 #### SMOC_FRAPS 1.2 8/23/2022
 - Volatility Strategy Screener added (For Spread Option Use)
@@ -43,6 +43,7 @@ pip3 install yfinance
 pip3 install yahoofin
 pip3 install requests
 ```
+## Download & Installation:
 #### No Local Program provided temporarily, please use the source code directly.
 
 ## Contributor:
