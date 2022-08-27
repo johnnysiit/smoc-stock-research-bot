@@ -1,6 +1,6 @@
 # SMOC Finance Report Automatic Process System (FRAPS)
 ## Introduction:
-This program is designed for financial investigators.
+This program is designed for financial analysist.
 
 All calculations that can be filled and rated mechanically will be included in this program.
 The analyst only needs to enter the ticker symbol of the stock to get all the important information about the company, financial statements, financial analysis, ratings, and some basic content. And the collected data will be cleaned, organized, and exported to the user.
@@ -41,6 +41,7 @@ We don't have official Windows currently. Please wait for new version.
 
 ## Contributor:
 ### Coding Contributor:
-Johnny Sit
+Juanxi Xue
 ### Financial Algorithm Contributor:
 Tim Tang
+Juanxi Xue
