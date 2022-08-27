@@ -1,18 +1,30 @@
 # SMOC Finance Report Automatic Process System (FRAPS)
 ## Introduction:
-This program is designed for financial analysist.
+This program is designed for professional financial analysts. By using this program, financial analysts can quickly obtain basic data, valuation models, and even stock picks
 
-All calculations that can be filled and rated mechanically will be included in this program.
-The analyst only needs to enter the ticker symbol of the stock to get all the important information about the company, financial statements, financial analysis, ratings, and some basic content. And the collected data will be cleaned, organized, and exported to the user.
+All calculations that can be filled mechanically, valuations, and ratings will be included in this program.
+The analyst will only need to enter the ticker symbol of the stock and will get all the important information about the company, financial statements, financial analysis, valuations, ratings and some important information. And the collected data will be cleaned, organized, and exported to the user.
 
-This program is initially planned to be used as a supplementary program for financial analysts. Our goal in this program is **NOT** to work stock prediction, but to act as an assistant to them. For those who are interested in this and want to make FRAPS more useful, please contact me to join our SMOC development team.
+This program is initially planned to be used as a supplementary tool for financial analysts. Our goal in this program is **NOT** to replace the job of analysts, but to act as an assistant to them. For those who are interested in this and want to make FRAPS more useful, please contact me and join our SMOC development team.
 
 Thank you for using our FRAPS.
-SMOC (_Stock Market Observation Club_)
+Juanxi Xue (_Stock Market Observation Club_)
 
+## Major Functions:
+### 1. Equity Statistic Data (Ratio/Multiplies Comparison)
+### 2. Financial Statement Analysis
+### 3. Volatility Strategy (For Spread Option Use)
+### 4. Modeling tools (DDM, Multipliers, FCFE, Valuation)
+### 5. Bond Calculator
+### 6. CAPM Functions (SML, CML, Sharpe, M^2, Treynor)
 ## Release History
+#### SMOC_FRAPS 1.2 8/23/2022
+- Volatility Strategy Screener added (For Spread Option Use)
+- Re-organized the program
+- Re-organized all the function description
+- Documentation Re-written
+
 #### SMOC_FRAPS 1.1 5/10/2022
----NOT RELEASE YET---
 - Stock Matrix Comparison Function Added
 - Optimize matrix grading speed
 
@@ -21,6 +33,18 @@ Initial Version Comes with following functions
 - Financial Statement Excel Generator
 - SMOC Financial Matrix Grading Program
 
+## Modules Needed:
+'''
+pip3 install pandas
+pip3 install numpy
+pip3 install lxml
+pip3 install finvizfinance
+pip3 install yfinance
+pip3 install yahoofin
+pip3 install requests
+'''
+### No Local Program provided temporarily, please use the source code
+~~
 ## Installation Instruction:
 ### MacOS Install:
 1. From this link download FRAPS [Click here to download](https://smocclub-my.sharepoint.com/:f:/g/personal/johnny_smoc_club/EpdYlSkX8wxChJmy3ySac88BUgVnpfqvgNDkitKvYhirOw?e=gb5ig5)
@@ -38,10 +62,9 @@ Go back to the file and run the "main" again
 
 ### Windows Install:
 We don't have official Windows currently. Please wait for new version.
-
+~~
 ## Contributor:
 ### Coding Contributor:
-Juanxi Xue
+Johnny Sit
 ### Financial Algorithm Contributor:
 Tim Tang
-Juanxi Xue

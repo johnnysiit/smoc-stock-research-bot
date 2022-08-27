@@ -11,7 +11,7 @@ def get_tickers():
 
 print("\n==========================================\n|| Welcome to SMOC Data Process System ||\n==========================================\n")
 print("请选择运行程序 Pleae select the program you want to run:")
-print("1. Stock Comparison Tool\n2. Financial Statement Grading System\n3. Volatility Strategy\n4. Exit")
+print("1. Equity Statistic Data (Ratio/Multiplies Comparison)\n2. Financial Statement Analysis\n3. Volatility Strategy (For Spread Option Use)\n4. Modeling tools (DDM, Multipliers, FCFE, Valuation)\n5. Bond Calculator\n6. CAPM Functions (SML, CML, Sharpe, M^2, Treynor\n7. Exit")
 program_run = input("Please enter a number: ")
 
 if program_run == "1":
@@ -34,8 +34,14 @@ elif program_run == "2":
 elif program_run == "3":
     notice = input("\nPlease enter your stock list on the file /Volatility_Strategy/ticker.txt\nWhen you ready, press enter to continue")
     vs.main()
-elif program_run == "4":
+elif program_run == "7":
     print("\nThank you for using this program!\n感谢使用！\n")
     exit()
+elif program_run == "4":
+    print("This function is not ready yet. If you want to try this function, run modeling.py instead.")
+elif program_run == "5":
+    print("This function is not ready yet. If you want to try this function, run bond.py instead.")
+elif program_run == "6":
+    print("This function is not ready yet. If you want to try this function, run CAPM.py instead.")
 else:
     print ("\nPlease enter a valid number!\n请输入有效数字！\n")
