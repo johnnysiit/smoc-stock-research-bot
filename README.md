@@ -8,6 +8,7 @@ The analyst will only need to enter the ticker symbol of the stock and will get 
 This program is initially planned to be used as a supplementary tool for financial analysts. Our goal in this program is **NOT** to replace the job of analysts, but to act as an assistant to them. For those who are interested in this and want to make FRAPS more useful, please contact me and join our SMOC development team.
 
 Thank you for using our FRAPS.
+
 Juanxi Xue (_Stock Market Observation Club_)
 
 ## Major Functions:
@@ -51,4 +52,5 @@ pip3 install requests
 Juanxi Xue
 ### Financial Algorithm Contributor:
 Juanxi Xue
+
 Tim Tang
