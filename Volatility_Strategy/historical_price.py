@@ -1,3 +1,4 @@
+#Author: Juanxi Xue
 import yfinance as yf
 
 def get_cv(ticker):

@@ -5,6 +5,8 @@ import Statement_Grading.mgs as mgs
 import Stock_Comparison.sct as sct
 import Statement_Grading.fin_stmt_excel as fse
 import Volatility_Strategy.main as vs
+import os
+import shutil
 
 
 def get_tickers():
@@ -48,3 +50,9 @@ elif program_run == "6":
     print("This function is not ready yet. If you want to try this function, run CAPM.py instead.")
 else:
     print ("\nPlease enter a valid number!\n请输入有效数字！\n")
+
+try: 
+    shutil.rmtree("__pycache__")
+    print("Deleted __pycache__")
+except:
+    print ("No __pycache__ folder found")

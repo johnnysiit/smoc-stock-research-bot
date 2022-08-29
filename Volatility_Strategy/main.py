@@ -135,7 +135,7 @@ def main():
     df = pd.DataFrame(final_data)
     current_time = datetime.datetime.now().strftime('%m-%d-%Y-%H-%M-%S')
     try:
-        #current_path = os.path.dirname(os.path.abspath(__file__))
+        current_path = os.path.dirname(os.path.abspath(__file__))
         df.to_excel("./Output/Volatility_Strategy"+current_time+".xlsx")
         print ("\n数据输出成功于Output文件夹\nData output successfully in Output folder\n")
     except:

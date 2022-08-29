@@ -44,6 +44,7 @@ pip3 install finvizfinance
 pip3 install yfinance
 pip3 install yahoofin
 pip3 install requests
+pip3 install openpyxl
 ```
 ## Download & Installation:
 #### No Local Program provided temporarily, please use the source code directly.
