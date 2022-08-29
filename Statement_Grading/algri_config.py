@@ -1,3 +1,4 @@
+#Author: Tim Tang
 def OMBDA_Grading(OMBDA): 
     if OMBDA <= 0.162:
         return 0

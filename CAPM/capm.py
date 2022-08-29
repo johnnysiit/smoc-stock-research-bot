@@ -1,3 +1,4 @@
+#Author: Juanxi Xue
 import calculator as calc
 
 r_free = float(input("Enter the risk-free rate: "))

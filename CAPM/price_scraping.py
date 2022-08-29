@@ -1,3 +1,4 @@
+#Author: Juanxi Xue
 from webbrowser import get
 import yfinance as yf
 

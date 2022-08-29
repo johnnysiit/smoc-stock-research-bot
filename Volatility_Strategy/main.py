@@ -1,3 +1,4 @@
+#Author: Juanxi Xue
 from finvizfinance.quote import finvizfinance
 import pandas as pd
 import datetime

@@ -1,3 +1,6 @@
+#Author: Juanxi Xue
+#This is the main introduce page of the program, run this py file to start the program
+
 import Statement_Grading.mgs as mgs
 import Stock_Comparison.sct as sct
 import Statement_Grading.fin_stmt_excel as fse

@@ -1,3 +1,4 @@
+#Author: Juanxi Xue
 import price_scraping as ps
 
 sp500 = ps.get_price("VOO")

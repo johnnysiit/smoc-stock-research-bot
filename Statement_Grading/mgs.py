@@ -1,3 +1,4 @@
+#Author: Juanxi Xue
 import pandas as pd
 import Statement_Grading.data_scraping as ds
 import Statement_Grading.algri_config as ac

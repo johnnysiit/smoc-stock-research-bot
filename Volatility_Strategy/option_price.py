@@ -1,3 +1,4 @@
+#Author: Juanxi Xue
 from dataclasses import replace
 from operator import index
 from webbrowser import get
