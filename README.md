@@ -17,7 +17,7 @@ Juanxi Xue (_Stock Market Observation Club_)
 #### 3. Volatility Strategy (For Spread Option Use)
 #### 4. Modeling tools (DDM, Multipliers, FCFE, Valuation) <sub> (Coding In Progress) </sub>
 #### 5. Bond Calculator <sub> (Coding In Progress) </sub>
-#### 6. CAPM Functions (SML, CML, Sharpe, M^2, Treynor) <sub> (Coding In Progress) </sub>
+#### 6. CAPM Functions (SML, CML, Sharpe, M^2, Treynor) <sub> (CAPM is in testing, additional formula is in progress) </sub>
 ## Release History
 #### SMOC_FRAPS 1.2 8/23/2022
 - Volatility Strategy Screener added (For Spread Option Use)
