@@ -1,8 +1,6 @@
 #Author: Juanxi Xue
 import price_scraping as ps
-
-sp500 = ps.get_price("VOO")
-stock = ps.get_price("WMT")
+import calculator as calc
 
 def variance(data):
     mean = sum(data)/len(data)
@@ -15,12 +13,19 @@ def covariance(data1, data2):
     covariance = sum([(data1[i]-mean1)*(data2[i]-mean2) for i in range(len(data1))])/len(data1)
     return covariance
 
-sp500_variance = variance(sp500)
-stock_variance = variance(stock)
-sp500_stock_covariance = covariance(sp500, stock)
-
 def beta(data1, data2):
     return covariance(data1, data2)/variance(data1)
 
-b = beta(sp500, stock)
-print (b)
+def capm(b):
+    r_free = 3.12
+    sp500_return = 12.4
+    capm = r_free + b*(sp500_return-r_free)
+    return capm
+
+def main(stock):
+    sp500 = ps.get_price("VOO")
+    stock = ps.get_price(stock)
+    b = beta(stock, sp500)
+    capm_stock = capm(b)
+    print ("Beta: ", b)
+    print ("CAPM: ", capm_stock)

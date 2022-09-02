@@ -42,7 +42,7 @@ def main():
     #make excel
     try:
         current_path = os.path.dirname(os.path.abspath(__file__))
-        file_name = current_path+"/Output/%s_SCT_%s.xlsx"%(ticker_list[0],current_time)
+        file_name = "./Output/%s_SCT_%s.xlsx"%(ticker_list[0],current_time)
         df.to_excel(file_name)
         print ("\n数据输出成功于Output文件夹\nData output successfully in Output folder\n")
     except:

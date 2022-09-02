@@ -7,6 +7,7 @@ import Statement_Grading.fin_stmt_excel as fse
 import Volatility_Strategy.main as vs
 import os
 import shutil
+import CAPM.main as capm
 
 
 def get_tickers():
@@ -47,7 +48,8 @@ elif program_run == "4":
 elif program_run == "5":
     print("This function is not ready yet. If you want to try this function, run bond.py instead.")
 elif program_run == "6":
-    print("This function is not ready yet. If you want to try this function, run CAPM.py instead.")
+    ticker = input("Please enter the ticker of the stock: ")
+    capm.main(ticker)
 else:
     print ("\nPlease enter a valid number!\n请输入有效数字！\n")
 
