@@ -23,6 +23,11 @@ Juanxi Xue (_Stock Market Observation Club_)
 #### 7. SMOC Trading Strategy Testing Program (Coding Convertion In Progress TBD Oct 2 2022). </sub>
 #### <sub> Please be remined that divended incremental is not included in current CAPM functions. </sub>
 ## Release History
+
+#### SMOC_FRAPS 1.3 9/10/2022
+- CAPM Function Added
+- M Square or other CAPM related function TBD Oct 2
+
 #### SMOC_FRAPS 1.2 8/23/2022
 - Volatility Strategy Screener added (For Spread Option Use)
 - Re-organized the program
