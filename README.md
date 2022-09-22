@@ -1,11 +1,13 @@
 # SMOC Finance Report Automatic Process System (FRAPS)
 ## Introduction:
-This program is designed for professional financial analysts. By using this program, financial analysts can quickly obtain basic data, valuation models, and even stock picks
+This program is designed for professional financial analysts. By using this program, financial analysts can quickly collect data, calculate valuation models, obtain metrics data, predict future valuations, and test with historical data.
 
-All calculations that can be filled mechanically, valuations, and ratings will be included in this program.
-The analyst will only need to enter the ticker symbol of the stock and will get all the important information about the company, financial statements, financial analysis, valuations, ratings and some important information. And the collected data will be cleaned, organized, and exported to the user.
+All calculations, valuations, forecasts, and ratings will be included in this program.
+Analysts can quickly get all important information about the company by simply entering the stock symbol. Such as financial statements, financial analysis, valuations, ratings, various metrics, and back-tests. And the collected data will be cleaned, organized, and exported to the user.
 
-This program is initially planned to be used as a supplementary tool for financial analysts. Our goal in this program is **NOT** to replace the job of analysts, but to act as an assistant to them. For those who are interested in this and want to make FRAPS more useful, please contact me and join our SMOC development team.
+This program massively improves the efficiency of financial analysts. Taking Multiplies Index, which captures 100 stocks, for example, FRAPS can completely capture all stocks in 50 seconds with up to 78 indicators, while manual capture takes 3 minutes for one stock. From 300 minutes to 50 seconds, this is a huge reduction in analyst workload.
+
+This program was initially planned to be used as a complementary tool for financial analysts. Our goal in this program is ***NOT*** to replace the analysts' work, but to act as their assistant. For those who are interested in this and want to make FRAPS more useful, please contact me and join our SMOC development team.
 
 Thank you for using our FRAPS.
 
@@ -18,6 +20,7 @@ Juanxi Xue (_Stock Market Observation Club_)
 #### 4. Modeling tools (DDM, Multipliers, FCFE, Valuation) <sub> (Coding In Progress) </sub>
 #### 5. Bond Calculator <sub> (Coding In Progress) </sub>
 #### 6. CAPM Functions (SML, CML, Sharpe, M^2, Treynor) <sub> (CAPM Calcualtion is available, others in progress) </sub>
+#### 7. SMOC Trading Strategy Testing Program (Coding Convertion In Progress TBD Oct 2 2022). </sub>
 #### <sub> Please be remined that divended incremental is not included in current CAPM functions. </sub>
 ## Release History
 #### SMOC_FRAPS 1.2 8/23/2022
