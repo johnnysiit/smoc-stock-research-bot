@@ -20,5 +20,4 @@ def get_cv(ticker):
     std = sum([(i-mean)**2 for i in price_list])/len(price_list)
     std = std**0.5
     return std/mean
-print (get_cv("CRMT"))
 

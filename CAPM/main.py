@@ -1,6 +1,5 @@
 #Author: Juanxi Xue
-import price_scraping as ps
-import calculator as calc
+import CAPM.price_scraping as ps
 
 def variance(data):
     mean = sum(data)/len(data)

@@ -28,6 +28,7 @@ def clean_sheet(dic):
     new_dict["Option to Price"] = str((dic["Option to Price"]*100))+"%"
     new_dict["JVOI"] = str((dic["JVOI"]*100))+"%"
     new_dict["JVOI2"] = str((dic["JVOI2"]*100))+"%"
+    new_dict["JVOI3"] = str((dic["JVOI3"]*100))+"%"
     return new_dict
 
 def get_cv(ticker):
@@ -55,6 +56,14 @@ def main():
     ticker_list = []
     for k in ticker:
         ticker_list.append(k.strip())
+    ticker_list.append("VOO")
+    ticker_list.append("TQQQ")
+    ticker_list.append("SQQQ")
+    ticker_list.append("UPRO")
+    ticker_list.append("SDOW")
+    ticker_list.append("UDOW")
+    ticker_list.append("SPXL")
+    ticker_list.append("SPXS")
     final_data = dict()
     count = 0
     for i in ticker_list:
@@ -121,6 +130,7 @@ def main():
             try: 
                 filter_data["CV"] = float(get_cv(i))
                 filter_data["JVOI2"] = filter_data["CV"]/filter_data["Option to Price"]
+                filter_data["JVOI3"] = (filter_data["JVOI"]+filter_data["JVOI2"])/2
                 cleaner_sheet = clean_sheet(filter_data)
                 final_data[i] = cleaner_sheet
             except:

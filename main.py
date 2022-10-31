@@ -1,13 +1,6 @@
 #Author: Juanxi Xue
 #This is the main introduce page of the program, run this py file to start the program
-
-import Statement_Grading.mgs as mgs
-import Stock_Comparison.sct as sct
-import Statement_Grading.fin_stmt_excel as fse
-import Volatility_Strategy.main as vs
-import os
 import shutil
-import CAPM.main as capm
 
 
 def get_tickers():
@@ -21,8 +14,11 @@ print("1. Equity Statistic Data (Ratio/Multiplies Comparison)\n2. Financial Stat
 program_run = input("Please enter a number: ")
 
 if program_run == "1":
+    import Stock_Comparison.sct as sct
     sct.main()
 elif program_run == "2":
+    import Statement_Grading.mgs as mgs
+    import Statement_Grading.fin_stmt_excel as fse
     mode = input("\nPlease select the mode you want to run: \n1. Multi-stock Metrix Ranking\n2. Single Stock Metrix Detail Analysis\n3. Get an Excel financial statement only\nPlease enter a number: ")
     if mode == "3":
         ticker,output_mode = get_tickers()
@@ -38,23 +34,28 @@ elif program_run == "2":
     elif mode == "1":
         print ("This function is not ready yet. If you want to try this function, run ranking.py instead.")
 elif program_run == "3":
+    import Volatility_Strategy.main as vs
     notice = input("\nPlease enter your stock list on the file /Volatility_Strategy/ticker.txt\nWhen you ready, press enter to continue")
     vs.main()
-elif program_run == "7":
-    print("\nThank you for using this program!\n感谢使用！\n")
-    exit()
 elif program_run == "4":
     print("This function is not ready yet. If you want to try this function, run modeling.py instead.")
 elif program_run == "5":
     print("This function is not ready yet. If you want to try this function, run bond.py instead.")
 elif program_run == "6":
+    import CAPM.main as capm
     ticker = input("Please enter the ticker of the stock: ")
     capm.main(ticker)
+elif program_run == "7":
+    print("\nThank you for using this program!\n感谢使用！\n")
 else:
     print ("\nPlease enter a valid number!\n请输入有效数字！\n")
-
+    
 try: 
     shutil.rmtree("__pycache__")
-    print("Deleted __pycache__")
+    shutil.rmtree("./CAPM/__pycache__")
+    shutil.rmtree("./Statement_Grading/__pycache__")
+    shutil.rmtree("./Stock_Comparison/__pycache__")
+    shutil.rmtree("./Volatility_Strategy/__pycache__")
+    print("====Exit====Code:1")
 except:
-    print ("No __pycache__ folder found")
+    print ("====Exit====Code:2")

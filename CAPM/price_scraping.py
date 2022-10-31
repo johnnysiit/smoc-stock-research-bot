@@ -5,7 +5,6 @@ import yfinance as yf
 def get_price(ticker):
     yfinance = yf.Ticker(ticker)
     hist = yfinance.history(period="5y")
-    #drop Open, High, Low, Volume, Dividends, Stock Splits
     hist = hist.drop(columns=["Open", "High", "Low", "Volume", "Dividends", "Stock Splits"])
     monthly_price = hist.resample("M").mean()
     price_list = []
