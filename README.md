@@ -1,4 +1,4 @@
-# SMOC Finance Report Automatic Process System (FRAPS)
+# SMOC Finance Automatic Process Assistant (FAPA)
 ## Introduction:
 This program is designed for professional financial analysts. By using this program, financial analysts can quickly collect data, calculate valuation models, obtain metrics data, predict future valuations, and test with historical data.
 
