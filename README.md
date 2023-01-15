@@ -2,7 +2,7 @@
 ## Introduction:
 This program is designed for professional financial analysts. By using this program, financial analysts can quickly collect data, calculate valuation models, obtain metrics data, predict future valuations, and test with historical data.
 
-FRAPS is a RPA (Robotic Process Automation) program, which helps investment firm and financial analyst to reduce repetitive and low-efficiency human jobs. Repetitive jobs, like calculations, valuations, forecasts, and ratings will be replaced by this program. A massive improvement on efficiency will be taken place. Taking Multiplies Index, which captures 100 stocks, for example, FRAPS can completely capture all stocks in 50 seconds with up to 78 indicators, while manual capture takes more than 3 minutes for one stock. From 300 minutes to 50 seconds, this is a huge reduction in analyst workload and cost saving for investment firm.
+FAPA is a RPA (Robotic Process Automation) program, which helps investment firm and financial analyst to reduce repetitive and low-efficiency human jobs. Repetitive jobs, like calculations, valuations, forecasts, and ratings will be replaced by this program. A massive improvement on efficiency will be taken place. Taking Multiplies Index, which captures 100 stocks, for example, FRAPS can completely capture all stocks in 50 seconds with up to 78 indicators, while manual capture takes more than 3 minutes for one stock. From 300 minutes to 50 seconds, this is a huge reduction in analyst workload and cost saving for investment firm.
 
 Analysts can quickly get all important information about the company by simply entering the stock symbol. Such as financial statements, financial analysis, valuations, ratings, various metrics, and back-tests. And the collected data will be cleaned, organized, and exported to the user.
 
@@ -22,7 +22,7 @@ Juanxi Xue (_Stock Market Observation Club_)
 #### 7. SMOC Trading Strategy Testing Program (Coding Convertion In Progress TBD Oct 2 2022). </sub>
 #### <sub> Please be remined that divended incremental is not included in current CAPM functions. </sub>
 ## Release History
-
+##### This program is not abandoned, will update when we have time. Thank you for your patient!
 #### SMOC_FRAPS 1.3 9/10/2022
 - CAPM Function Added
 - M Square or other CAPM related function TBD Oct 2
