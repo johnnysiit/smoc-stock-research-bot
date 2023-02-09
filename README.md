@@ -1,14 +1,14 @@
-# SMOC Finance Automatic Process Assistant (FAPA)
+# SMOC Stock Research Bot
 ## Introduction:
 This program is designed for professional financial analysts. By using this program, financial analysts can quickly collect data, calculate valuation models, obtain metrics data, predict future valuations, and test with historical data.
 
-FAPA is a RPA (Robotic Process Automation) program, which helps investment firm and financial analyst to reduce repetitive and low-efficiency human jobs. Repetitive jobs, like calculations, valuations, forecasts, and ratings will be replaced by this program. A massive improvement on efficiency will be taken place. Taking Multiplies Index, which captures 100 stocks, for example, FRAPS can completely capture all stocks in 50 seconds with up to 78 indicators, while manual capture takes more than 3 minutes for one stock. From 300 minutes to 50 seconds, this is a huge reduction in analyst workload and cost saving for investment firm.
+SMOC Stock Research Bot is a RPA (Robotic Process Automation) program, which helps investment firm and financial analyst to reduce repetitive and low-efficiency human jobs. Repetitive jobs, like calculations, valuations, forecasts, and ratings will be replaced by this program. A massive improvement on efficiency will be taken place. Taking Multiplies Index, which captures 100 stocks, for example, SMOC Stock Research Bot can completely capture all stocks in 50 seconds with up to 78 indicators, while manual capture takes more than 3 minutes for one stock. From 300 minutes to 50 seconds, this is a huge reduction in analyst workload and cost saving for investment firm.
 
 Analysts can quickly get all important information about the company by simply entering the stock symbol. Such as financial statements, financial analysis, valuations, ratings, various metrics, and back-tests. And the collected data will be cleaned, organized, and exported to the user.
 
 This program was initially planned to be used as a complementary tool for financial analysts. Our goal in this program is ***NOT*** to replace the analysts' work, but to act as their assistant. For those who are interested in this and want to make FRAPS more useful, please contact me and join our SMOC development team.
 
-Thank you for using our FRAPS.
+Thank you for using our SMOC Stock Research Bot.
 
 Juanxi Xue (_Stock Market Observation Club_)
 
